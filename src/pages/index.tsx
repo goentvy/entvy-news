@@ -1,10 +1,13 @@
 import { AppFooter, AppHeader } from '@/components/common';
+import Search from './Search';
 
 function App() {
     return (
         <div className="page">
             <AppHeader />
-            <div>main</div>
+            <div className="main">
+                <Search />
+            </div>
             <AppFooter />
         </div>
     );
