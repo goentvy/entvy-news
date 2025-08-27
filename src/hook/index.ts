@@ -9,7 +9,7 @@ export function useNewsSearch(query: string) {
         link?: string;
         originallink?: string;
     }
-    // 1. 커스텀 훅 내부에 세 가지 상태(data, loading, error)를 캡슐화
+    // 커스텀 훅 내부에 세 가지 상태(data, loading, error)를 캡슐화
     const [ data, setData] = useState<Array<NewData>>([]);
     const [ loading, setLoading ] = useState<boolean>(false);
     const [ error, setError ] = useState<string | null>(null);
@@ -61,13 +61,13 @@ export function useNewsSearch(query: string) {
         };
         fetchNews();
 
-        // 3. Cleanup 함수: useEffect가 다시 실행되기 전에 이전 요청을 취소
+        // Cleanup 함수: useEffect가 다시 실행되기 전에 이전 요청을 취소
         return () => {
             controller.abort();
         };
     }, [query]);
 
-    // 4. 컴포넌트에서 사용할 상태와 값들을 객체로 묶어 반환
+    // 컴포넌트에서 사용할 상태와 값들을 객체로 묶어 반환
     return { data, loading, error };
 }
 
